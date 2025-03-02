@@ -45,6 +45,7 @@ body {
   border: 0;
   vertical-align: middle;
   display: inline-block;
+  object-fit: contain; /* Prevents distortion, maintains aspect ratio */
 }
 
 .text-block {
@@ -62,20 +63,20 @@ body {
   display: flex;
   align-items: center;
   padding: 10px 20px 10px 15px;
-  background: linear-gradient(45deg, #e400f2, #9c00b3); /* Gradient for a dynamic purple effect */
+  background: linear-gradient(45deg, #e400f2, #9c00b3); /* Vibrant purple gradient, works with blue icon */
   color: var(--white);
   font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 10px; /* Slightly more rounded for a modern look */
-  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both background and shadow */
-  box-shadow: 0 0 10px rgba(228, 0, 242, 0.5); /* Subtle purple glow */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for color and shadow */
+  box-shadow: 0 0 12px rgba(228, 0, 242, 0.6); /* Slightly stronger purple glow to enhance visibility and complement blue */
 }
 
 .telegram-button a:hover {
-  background: linear-gradient(45deg, #b300cc, #8a0099); /* Darker gradient for hover */
-  box-shadow: 0 0 15px rgba(228, 0, 242, 0.7); /* Slightly stronger glow on hover */
+  background: linear-gradient(45deg, #b300cc, #8a0099); /* Darker purple gradient for hover, maintaining harmony with blue */
+  box-shadow: 0 0 18px rgba(228, 0, 242, 0.8); /* Stronger glow on hover for emphasis */
 }
 
 .telegram-icon {
@@ -83,6 +84,123 @@ body {
   height: 20px;
   margin-right: 8px;
   vertical-align: middle;
+}
+
+.tos-container {
+  max-width: 800px;
+  width: 100%;
+  padding: 2rem;
+  color: #C1C0D8; /* Match text-block color for consistency */
+  font-family: Inter, sans-serif;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.tos-title {
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tos-section {
+  margin-bottom: 2rem;
+}
+
+.tos-section h2 {
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.tos-section p {
+  margin: 0 0 1rem;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tos-section ul {
+  list-style-type: disc;
+  margin: 0 0 1rem 1.5rem;
+  padding: 0;
+}
+
+.tos-section ul li {
+  font-size: 16px;
+  font-weight: 400;
+  color: #C1C0D8;
+  margin-bottom: 0.5rem;
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #e400f2; /* Match button color for hover effect */
+}
+
+.tos-link {
+  display: block;
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.tos-link:hover {
+  color: #e400f2; /* Match button color for hover effect */
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+  .image {
+    margin-top: 20px; /* Reduce top margin to make logo higher */
+    margin-bottom: 1rem; /* Reduce bottom margin for tighter spacing */
+    width: 80%; /* Scale down logo width for mobile, maintaining aspect ratio */
+  }
+
+  .div-block {
+    padding: 0 1rem; /* Reduce padding on mobile for better fit */
+  }
+
+  .text-block {
+    font-size: 18px; /* Slightly smaller text for mobile readability */
+  }
+
+  .telegram-button {
+    margin-top: 1rem; /* Reduce margin for tighter spacing */
+  }
+
+  .tos-link {
+    margin-top: 1rem; /* Reduce margin for tighter spacing */
+  }
+
+  .tos-container {
+    padding: 1rem; /* Reduce padding on mobile for better fit */
+  }
+
+  .tos-title {
+    font-size: 28px; /* Slightly smaller title for mobile */
+  }
+
+  .tos-section h2 {
+    font-size: 20px; /* Slightly smaller headings for mobile */
+  }
 }
 
 @font-face {
