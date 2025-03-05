@@ -17,7 +17,8 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333;
-  overflow: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .div-block {
@@ -29,7 +30,8 @@ body {
   font-weight: 600;
   padding: 2rem;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .main-content {
