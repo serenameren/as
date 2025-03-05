@@ -11,37 +11,48 @@ html {
 
 body {
   margin: 0;
-  min-height: 100%;
+  height: 100vh;
   background-color: #13122a;
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333;
+  overflow: hidden;
 }
 
 .div-block {
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-weight: 600;
-  padding: 0 2rem;
   display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  font-weight: 600;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 0.95;
 }
 
 .div-block-2 {
   background-image: radial-gradient(circle, rgba(228, 0, 242, .23), rgba(228, 0, 242, 0) 49%, rgba(228, 0, 242, 0) 100%, #e400f2 100%, #e400f2);
   width: 50%;
-  height: 50%;
+  height: 80%;
   position: fixed;
   z-index: -1;
 }
 
 .image {
-  width: 50ch;
-  max-width: 100%;
-  margin-top: 10px;
-  margin-bottom: 1.5rem;
+  width: 45ch;
+  max-width: 85%;
+  margin-bottom: 0.75rem;
   border: 0;
   vertical-align: middle;
   display: inline-block;
@@ -53,16 +64,18 @@ body {
   font-family: Inter, sans-serif;
   font-size: 20px;
   font-weight: 400;
+  margin-bottom: 2.5rem;
 }
 
 .telegram-button {
-  margin-top: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .telegram-button a {
   display: flex;
   align-items: center;
-  padding: 10px 20px 10px 15px;
+  padding: 15px 30px 15px 22.5px;
   background: linear-gradient(45deg, #e400f2, #9c00b3); /* Vibrant purple gradient, works with blue icon */
   color: var(--white);
   font-family: Inter, sans-serif;
@@ -90,10 +103,35 @@ body {
   max-width: 800px;
   width: 100%;
   padding: 2rem;
-  color: #C1C0D8; /* Match text-block color for consistency */
+  color: #C1C0D8;
   font-family: Inter, sans-serif;
   line-height: 1.6;
   text-align: left;
+  background: rgba(19, 18, 42, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(228, 0, 242, 0.1);
+  border: 1px solid rgba(228, 0, 242, 0.1);
+  overflow-y: auto;
+  max-height: 85vh;
+}
+
+.tos-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tos-container::-webkit-scrollbar-track {
+  background: rgba(228, 0, 242, 0.05);
+  border-radius: 4px;
+}
+
+.tos-container::-webkit-scrollbar-thumb {
+  background: rgba(228, 0, 242, 0.2);
+  border-radius: 4px;
+}
+
+.tos-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(228, 0, 242, 0.3);
 }
 
 .tos-title {
@@ -101,12 +139,26 @@ body {
   font-family: Inter, sans-serif;
   font-size: 32px;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   text-align: center;
+  background: linear-gradient(45deg, #e400f2, #9c00b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(228, 0, 242, 0.3);
 }
 
 .tos-section {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: rgba(228, 0, 242, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(228, 0, 242, 0.05);
+  transition: all 0.3s ease;
+}
+
+.tos-section:hover {
+  background: rgba(228, 0, 242, 0.05);
+  transform: translateY(-2px);
 }
 
 .tos-section h2 {
@@ -115,17 +167,21 @@ body {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 1rem;
+  background: linear-gradient(45deg, #e400f2, #9c00b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .tos-section p {
   margin: 0 0 1rem;
   font-size: 16px;
   font-weight: 400;
+  line-height: 1.8;
 }
 
 .tos-section ul {
-  list-style-type: disc;
-  margin: 0 0 1rem 1.5rem;
+  list-style-type: none;
+  margin: 0 0 1rem 0;
   padding: 0;
 }
 
@@ -133,32 +189,47 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #C1C0D8;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.tos-section ul li::before {
+  content: "•";
+  color: #e400f2;
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
 }
 
 .back-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   color: var(--white);
   font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   margin-bottom: 2rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(228, 0, 242, 0.1);
 }
 
 .back-link:hover {
-  color: #e400f2; /* Match button color for hover effect */
+  color: #e400f2;
+  background: rgba(228, 0, 242, 0.15);
+  transform: translateX(-4px);
 }
 
 .tos-link {
-  display: block;
+  display: inline-block;
   color: var(--white);
   font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
-  margin-top: 1.5rem;
   transition: color 0.3s ease;
 }
 
@@ -166,16 +237,35 @@ body {
   color: #e400f2; /* Match button color for hover effect */
 }
 
-/* Mobile-specific styles */
+.footer-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  flex: 0.1;
+}
+
 @media screen and (max-width: 768px) {
-  .image {
-    margin-top: 20px; /* Reduce top margin to make logo higher */
-    margin-bottom: 1rem; /* Reduce bottom margin for tighter spacing */
-    width: 80%; /* Scale down logo width for mobile, maintaining aspect ratio */
+  .div-block {
+    padding: 1.5rem;
   }
 
-  .div-block {
-    padding: 0 1rem; /* Reduce padding on mobile for better fit */
+  .main-content {
+    flex: 0.92;
+  }
+
+  .image {
+    width: 75%;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-links {
+    flex: 0.08;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0;
   }
 
   .text-block {
@@ -186,20 +276,34 @@ body {
     margin-top: 1rem; /* Reduce margin for tighter spacing */
   }
 
-  .tos-link {
-    margin-top: 1rem; /* Reduce margin for tighter spacing */
-  }
-
   .tos-container {
-    padding: 1rem; /* Reduce padding on mobile for better fit */
+    padding: 1.5rem;
+    margin: 1rem;
+    max-height: 82vh;
   }
 
   .tos-title {
-    font-size: 28px; /* Slightly smaller title for mobile */
+    font-size: 28px;
+    margin-bottom: 2rem;
+  }
+
+  .tos-section {
+    padding: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .tos-section h2 {
-    font-size: 20px; /* Slightly smaller headings for mobile */
+    font-size: 20px;
+  }
+
+  .tos-section p, 
+  .tos-section ul li {
+    font-size: 15px;
+  }
+
+  .div-block-2 {
+    width: 100%;
+    height: 50%;
   }
 }
 
@@ -217,4 +321,102 @@ body {
   font-weight: 600;
   font-style: normal;
   font-display: swap;
+}
+
+.faq-container {
+  max-width: 900px;
+}
+
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faq-item {
+  padding: 1.5rem;
+  background: rgba(228, 0, 242, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(228, 0, 242, 0.05);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  background: rgba(228, 0, 242, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(228, 0, 242, 0.1);
+}
+
+.faq-item h2 {
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #e400f2, #9c00b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #C1C0D8;
+}
+
+@media screen and (max-width: 768px) {
+  .faq-container {
+    padding: 1.25rem;
+    margin: 1rem;
+  }
+
+  .faq-section {
+    gap: 1rem;
+  }
+
+  .faq-item {
+    padding: 1.25rem;
+  }
+
+  .faq-item h2 {
+    font-size: 18px;
+  }
+
+  .faq-item p {
+    font-size: 15px;
+  }
+}
+
+.support-note {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(228, 0, 242, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(228, 0, 242, 0.1);
+}
+
+.support-note p {
+  color: #C1C0D8;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(45deg, #e400f2, #9c00b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  .support-note {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+  }
+
+  .support-note p {
+    font-size: 15px;
+  }
 }
